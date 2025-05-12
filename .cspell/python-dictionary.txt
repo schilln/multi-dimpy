@@ -1,0 +1,10 @@
+addopts
+argnames
+cmap
+figsize
+jndarray
+ndarray
+pytest
+ufunc
+ufuncs
+zlim
