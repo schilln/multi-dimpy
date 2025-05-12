@@ -9,13 +9,13 @@ from dimpy import Dvec, DvecType
 @pytest.fixture
 def basis():
     """`Basis` instance with m = 3."""
-    return dp.Basis("m", "s", "kg")
+    return dp.Basis(("m", "s", "kg"))
 
 
 @pytest.fixture
 def basis_m_equals_2():
     """`Basis` instance with m = 2."""
-    return dp.Basis("m", "s")
+    return dp.Basis(("m", "s"))
 
 
 @pytest.fixture

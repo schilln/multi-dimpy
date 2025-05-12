@@ -1,5 +1,5 @@
 class Basis:
-    def __init__(self, *units: str):
+    def __init__(self, units: tuple[str]):
         """
 
         Parameters
