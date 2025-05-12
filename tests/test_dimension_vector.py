@@ -211,7 +211,7 @@ def test_subtract(vector_uniform, vector_ratioed, basis):
     )
 
 
-def test_equal_not_Dvec(vector_uniform, basis):
+def test_not_equal_not_Dvec(vector_uniform, basis):
     dvec = Dvec(vector_uniform, basis)
 
     assert not dvec == 1
