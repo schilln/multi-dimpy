@@ -41,7 +41,12 @@ def arr_4by4(codomain, domain):
 
 
 @pytest.fixture
-def arr_2(domain):
+def arr_1d(domain):
     num = np.array([1, 2])
     vec = dp.Darray(num, domain)
     return vec
+
+
+class Add:
+    def test_1d(self, arr_1d):
+        assert np.allclose((arr_1d + arr_1d).num, np.array([2, 4]))

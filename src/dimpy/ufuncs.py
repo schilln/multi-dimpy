@@ -23,11 +23,12 @@ def _add(*inputs, **kwargs):
     if left.dvecs != right.dvecs:
         raise ValueError("left and right dimension vectors do not match")
 
-    return da.Darray(left.num + right.num, left.codomain, left.domain)
+    return da.Darray(left.num + right.num, left.dvecs)
 
 
 @implements(np.subtract)
 def _subtract(*inputs, **kwargs):
+    # TODO: This ain't right... is it?
     return _add(*inputs, **kwargs)
 
 

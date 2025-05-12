@@ -13,6 +13,12 @@ def basis():
 
 
 @pytest.fixture
+def basis_other():
+    """`Basis` instance with m = 3, with different units."""
+    return dp.Basis(("m", "kg", "s"))
+
+
+@pytest.fixture
 def basis_m_equals_2():
     """`Basis` instance with m = 2."""
     return dp.Basis(("m", "s"))
@@ -23,7 +29,8 @@ def vector_m_equals_2():
     """Numerical component of `Dvec` with m = 2."""
     # fmt: off
     return np.array([[0, 1],
-                     [2, 3]])
+                     [2, 3],
+                     [3, 2]])
     # fmt: on
 
 
@@ -78,8 +85,8 @@ def vector_ratioed_n_equals_2():
 @pytest.fixture
 def vector_arbitrary():
     # fmt: off
-    return np.array([[-1, 1, 0],
-                     [-2, 2, 1],
+    return np.array([[-1, 1,  0],
+                     [-2, 2,  1],
                      [-3, 3, -1]])
     # fmt: on
 
@@ -106,10 +113,7 @@ def test_ndim_equals_1(vector_1d, basis):
     assert dvec.m == 3
 
 
-def test_ndim_greater_than_2(
-    vector_ndim_greater_than_2,
-    basis,
-):
+def test_ndim_greater_than_2(vector_ndim_greater_than_2, basis):
     with pytest.raises(ValueError):
         Dvec(vector_ndim_greater_than_2, basis)
 
@@ -167,11 +171,19 @@ def test_add_unequal_n(vector_uniform, vector_uniform_n_equals_2, basis):
         dvec_left + dvec_right
 
 
-def test_add_unequal_basis(
-    vector_uniform_n_equals_2, basis, vector_m_equals_2, basis_m_equals_2
+def test_add_different_bases_m(
+    vector_uniform, basis, vector_m_equals_2, basis_m_equals_2
 ):
-    dvec_left = Dvec(vector_uniform_n_equals_2, basis)
+    dvec_left = Dvec(vector_uniform, basis)
     dvec_right = Dvec(vector_m_equals_2, basis_m_equals_2)
+
+    with pytest.raises(ValueError):
+        dvec_left + dvec_right
+
+
+def test_add_different_bases_units(vector_uniform, basis, basis_other):
+    dvec_left = Dvec(vector_uniform, basis)
+    dvec_right = Dvec(vector_uniform, basis_other)
 
     with pytest.raises(ValueError):
         dvec_left + dvec_right

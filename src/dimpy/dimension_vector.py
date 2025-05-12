@@ -102,7 +102,7 @@ class Dvec:
 
     @property
     def m(self):
-        return self._basis.m
+        return self.basis.m
 
     @property
     def vectype(self):

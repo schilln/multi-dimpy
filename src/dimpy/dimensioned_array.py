@@ -19,8 +19,10 @@ def _array_ufunc_(ufunc, method, *inputs, **kwargs):
 
 
 class Darray(np.lib.mixins.NDArrayOperatorsMixin):
-    def __init__(self, num: np.ndarray, dimension_vectors: tuple[Dvec]):
+    def __init__(self, num: np.ndarray, dimension_vectors: Dvec | tuple[Dvec]):
         """Dimensioned array."""
+        if isinstance(dimension_vectors, Dvec):
+            dimension_vectors = (dimension_vectors,)
         Darray._verify_inputs(num, dimension_vectors)
 
         self._num = num
