@@ -18,11 +18,6 @@ def _array_ufunc_(ufunc, method, *inputs, **kwargs):
         return NotImplemented
 
 
-def darray2d(num: np.ndarray, codomain: Dvec, domain: Dvec):
-    # TODO: See old-dimpy for _verify_inputs and codomain and domain properties.
-    return Darray(num, (codomain, -domain))
-
-
 class Darray(np.lib.mixins.NDArrayOperatorsMixin):
     def __init__(self, num: np.ndarray, dimension_vectors: tuple[Dvec]):
         """Dimensioned array."""
