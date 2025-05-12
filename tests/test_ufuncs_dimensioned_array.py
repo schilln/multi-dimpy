@@ -2,12 +2,12 @@ import pytest
 
 import numpy as np
 
-import dimpy as dp
+from dimpy import Basis, Dvec, Darray
 
 
 @pytest.fixture
 def basis():
-    basis = dp.Basis(("meter", "second", "kilogram"))
+    basis = Basis(("meter", "second", "kilogram"))
     return basis
 
 
@@ -19,7 +19,7 @@ def codomain(basis):
                     [1, -2, 0],
                     [1,  0, 1]])
     # fmt: on
-    codomain = dp.Dvec(cod, basis)
+    codomain = Dvec(cod, basis)
     return codomain
 
 
@@ -29,21 +29,21 @@ def domain(basis):
     dom = np.array([[1, 0, 0],
                     [0, 0, 1]])
     # fmt: on
-    domain = dp.Dvec(dom, basis)
+    domain = Dvec(dom, basis)
     return domain
 
 
 @pytest.fixture
 def arr_4by4(codomain, domain):
     num = np.arange(8).reshape(4, 2)
-    mat = dp.Darray(num, (codomain, domain))
+    mat = Darray(num, (codomain, domain))
     return mat
 
 
 @pytest.fixture
 def arr_1d(domain):
     num = np.array([1, 2])
-    vec = dp.Darray(num, domain)
+    vec = Darray(num, domain)
     return vec
 
 

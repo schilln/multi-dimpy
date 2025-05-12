@@ -2,7 +2,7 @@ from numbers import Number
 
 import numpy as np
 
-# TODO: Access through dp.Darray?
+# Cannot use imports like `from dimpy import ...` due to circular imports.
 import dimpy.dimensioned_array as da
 
 # TODO: There's a lot of work to do with broadcasting, if even possible.

@@ -2,26 +2,25 @@ import pytest
 
 import numpy as np
 
-import dimpy as dp
-from dimpy import Dvec, DvecType
+from dimpy import Basis, Dvec, DvecType
 
 
 @pytest.fixture
 def basis():
     """`Basis` instance with m = 3."""
-    return dp.Basis(("m", "s", "kg"))
+    return Basis(("m", "s", "kg"))
 
 
 @pytest.fixture
 def basis_other():
     """`Basis` instance with m = 3, with different units."""
-    return dp.Basis(("m", "kg", "s"))
+    return Basis(("m", "kg", "s"))
 
 
 @pytest.fixture
 def basis_m_equals_2():
     """`Basis` instance with m = 2."""
-    return dp.Basis(("m", "s"))
+    return Basis(("m", "s"))
 
 
 @pytest.fixture
