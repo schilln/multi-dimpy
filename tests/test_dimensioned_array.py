@@ -12,36 +12,78 @@ def basis():
 
 
 @pytest.fixture
-def codomain(basis):
-    # fmt: off
-    cod = np.array([[1,  0, 0],
-                    [1, -1, 0],
-                    [1, -2, 0],
-                    [1,  0, 1]])
-    # fmt: on
-    codomain = Dvec(cod, basis)
-    return codomain
+def basis_other():
+    """`Basis` instance with m = 3, with different units."""
+    return Basis(("m", "kg", "s"))
 
 
 @pytest.fixture
-def domain(basis):
+def dvec0(basis):
     # fmt: off
-    dom = np.array([[1, 0, 0],
+    vec = np.array([[1, 0, 1],
+                    [0, 1, 1]])
+    # fmt: on
+    dvec = Dvec(vec, basis)
+    return dvec
+
+
+@pytest.fixture
+def dvec1(basis):
+    # fmt: off
+    vec = np.array([[1, 0, 0],
+                    [0, 1, 0],
                     [0, 0, 1]])
     # fmt: on
-    domain = Dvec(dom, basis)
-    return domain
+    dvec = Dvec(vec, basis)
+    return dvec
 
 
 @pytest.fixture
-def arr_4by4(codomain, domain):
-    num = np.arange(8).reshape(4, 2)
-    mat = Darray(num, (codomain, domain))
-    return mat
+def dvec_other_basis(basis_other):
+    # fmt: off
+    vec = np.array([[1, 0, 1],
+                    [0, 1, 1]])
+    # fmt: on
+    dvec = Dvec(vec, basis_other)
+    return dvec
 
 
-@pytest.fixture
-def arr_2(domain):
+def test_construction(dvec0, dvec1):
+    num = np.arange(2 * 3).reshape(2, 3)
+    Darray(num, (dvec0, dvec1))
+
+
+def test_basis(dvec0, basis):
     num = np.array([1, 2])
-    vec = Darray(num, domain)
-    return vec
+    assert Darray(num, (dvec0,)).basis == basis
+
+
+def test_not_num(dvec0):
+    num = 1
+    with pytest.raises(ValueError):
+        Darray(num, (dvec0,))
+
+
+def test_not_dvec(dvec0):
+    num = np.array([1, 2])
+    not_dvec = 1
+    with pytest.raises(ValueError):
+        Darray(num, (dvec0, not_dvec))
+
+
+def test_num_dvecs_mismatch(dvec0, dvec1):
+    num = np.arange(2 * 3 * 4).reshape(2, 3, 4)
+    with pytest.raises(ValueError):
+        Darray(num, (dvec0, dvec1))
+
+
+def test_dvecs_dimension_mismatch(dvec0, dvec1):
+    num = np.arange(2 * 4).reshape(2, 4)
+    with pytest.raises(ValueError):
+        Darray(num, (dvec0, dvec1))
+
+
+def test_basis_mismatch(dvec0, dvec_other_basis):
+    num = np.arange(2 * 2).reshape(2, 2)
+    with pytest.raises(ValueError):
+        Darray(num, (dvec0, dvec_other_basis))

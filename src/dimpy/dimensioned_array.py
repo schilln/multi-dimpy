@@ -73,7 +73,7 @@ class Darray(np.lib.mixins.NDArrayOperatorsMixin):
         for axis in range(num.ndim):
             if num.shape[axis] != dvecs[axis].n:
                 raise ValueError(
-                    f"axis {axis} of num and length of dimension"
+                    f"axis {axis} of `num` and length of dimension"
                     f" vector {axis} differ ({num.shape[axis]} !="
                     f" {dvecs[axis].n})"
                 )
