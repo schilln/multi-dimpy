@@ -3,6 +3,8 @@ import numpy as np
 import dimpy.dimensioned_array as da
 
 # TODO: There's a lot of work to do with broadcasting, if even possible.
+# TODO: If Dvecs are dimensionless, uniform, or ratioed, we can shortcut some
+# Dvec computations.
 HANDLED_UFUNCS = dict()
 
 
@@ -17,11 +19,9 @@ def implements(np_ufunc):
 @implements(np.add)
 def _add(*inputs, **kwargs):
     left, right = inputs
-
-    if left.codomain != right.codomain:
-        raise ValueError("codomains do not match")
-    if left.domain != right.domain:
-        raise ValueError("domains do not match")
+    # TODO: Broadcast.
+    if left.dvecs != right.dvecs:
+        raise ValueError("left and right dimension vectors do not match")
 
     return da.Darray(left.num + right.num, left.codomain, left.domain)
 
@@ -89,6 +89,7 @@ def _floor_divide(*inputs, **kwargs):
 def _matmul(*inputs, **kwargs):
     left, right = inputs
 
+    # TODO
     if left.basis != right.basis:
         raise ValueError("operands use different bases")
     if left.domain != right.codomain:

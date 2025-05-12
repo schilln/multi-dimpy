@@ -52,22 +52,24 @@ class Darray(np.lib.mixins.NDArrayOperatorsMixin):
         # alongside the numpy array.
         return (
             f"num:\n{indent(str(self.num), ' ')}\n"
-            f"basis: {str(self.dvecs[0].basis)}\n"
+            f"basis: {str(self.dvecs[0].basis)}"
         )
 
     def _verify_inputs(num, dvecs):
         # TODO: Define custom exceptions? Maybe for basis mismatch?
-
+        # TODO: Split this into multiple methods.
         # Type checks
         if not isinstance(num, np.ndarray):
-            raise ValueError("num must be np.ndarray")
+            raise ValueError("`num` must be `np.ndarray`")
         if any(not isinstance(item, Dvec) for item in dvecs):
-            raise ValueError("dimension_vectors must be tuple of Dvecs")
+            raise ValueError(
+                "`dimension_vectors` must be `Dvec` or tuple of `Dvec`s"
+            )
 
         # Check the number of dimensions
         if num.ndim != len(dvecs):
             raise ValueError(
-                "num.ndim is not equal to the number of " "dimension vectors"
+                "`num.ndim` is not equal to the number of dimension vectors"
             )
 
         # Check the length of each dimension vector against that of num
@@ -83,6 +85,6 @@ class Darray(np.lib.mixins.NDArrayOperatorsMixin):
         for i, dim_vec in enumerate(dvecs[1:]):
             if dvecs[0].basis != dim_vec.basis:
                 raise ValueError(
-                    f"dimension_vectors[{i}].basis is different"
+                    f"`dimension_vectors[{i}].basis` is different"
                     " from the other dimension vector bases"
                 )

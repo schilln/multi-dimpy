@@ -41,7 +41,7 @@ class Dvec:
             If (n, m), then the (i, j) entry is the exponent of jth unit of
             the basis for the ith numerical value.
         basis
-            The instance of `Basis` used by the dimension vector. Should have m
+            The instance of `Basis` used by the dimension vector. Must have m
             components.
 
         Attributes
@@ -128,13 +128,14 @@ class Dvec:
         if self.basis != other.basis:
             raise ValueError("left basis and right basis do not match")
         if self.n != other.n:
-            raise ValueError(f"`left.n` ({self.n}) does not equal `right.n`"
-                             f" ({other.n})")
+            raise ValueError(
+                f"`left.n` ({self.n}) does not equal `right.n` ({other.n})"
+            )
 
         # TODO: May be efficient to check certain conditions on the `vectype`s
         # that produce other `vectypes`.
         return Dvec(self.vector + other.vector, self.basis)
-    
+
     def __sub__(self, other):
         return self + -1 * other
 
@@ -142,8 +143,10 @@ class Dvec:
         if isinstance(other, Number):
             return Dvec(self.vector * other, self.basis)
         # TODO: This may need work.
+        # TODO: Multiplication by dimensioned scalar
+        # TODO: Element-wise multiplication
         return NotImplemented
-    
+
     def __rmul__(self, other):
         return self * other
 
@@ -167,9 +170,9 @@ class Dvec:
 
     def _verify_inputs(vector, basis):
         if vector.shape[1] != basis.m:
-            raise ValueError("`vector` and `basis` do not match")
+            raise ValueError("`vector` and `basis` do not match sizes")
         if vector.ndim > 2:
             raise ValueError(
-                f"vector has too many dimensions (`vector.ndim` = {vector.ndim}"
-                " > 2)"
+                "`vector` has too many dimensions (`vector.ndim` ="
+                f" {vector.ndim} > 2)"
             )
