@@ -2,7 +2,6 @@ import numpy as np
 
 import dimpy.dimensioned_array as da
 
-
 # TODO: There's a lot of work to do with broadcasting, if even possible.
 HANDLED_UFUNCS = dict()
 

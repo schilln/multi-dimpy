@@ -2,8 +2,8 @@ from textwrap import indent
 
 import numpy as np
 
-from dimpy.dimension_vector import Dvec
 import dimpy.ufuncs as ufuncs
+from dimpy.dimension_vector import Dvec
 
 
 def _array_ufunc_(ufunc, method, *inputs, **kwargs):

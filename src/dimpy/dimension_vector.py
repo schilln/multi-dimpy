@@ -1,6 +1,6 @@
-from textwrap import indent
-from numbers import Number
 from enum import Enum
+from numbers import Number
+from textwrap import indent
 
 import numpy as np
 
