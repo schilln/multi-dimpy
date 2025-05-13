@@ -1,8 +1,7 @@
+import numpy as np
 import pytest
 
-import numpy as np
-
-from dimpy import Basis, Dvec, Darray
+from dimpy import Basis, Darray, Dvec
 
 
 @pytest.fixture
