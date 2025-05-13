@@ -1,6 +1,6 @@
 [project]
 name = "multi-dimpy"
-version = "0.1.0"
+version = "0.2.1"
 description = "NumPy-wrapper for dimensioned arrays."
 authors = [
     {name = "Nathan Schill", email = "nateschill@gmail.com"}
