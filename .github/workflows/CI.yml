@@ -6,7 +6,7 @@ on:
 
 jobs:
   ruff-pytest:
-
+    name: Ruff and pytest
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
