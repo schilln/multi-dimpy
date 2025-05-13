@@ -50,7 +50,7 @@ jobs:
 
     environment:
       name: pypi
-      url: https://test.pypi.org/project/multi-dimpy/
+      url: https://pypi.org/project/multi-dimpy/
 
     steps:
       - name: Retrieve release distributions
