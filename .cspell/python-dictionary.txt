@@ -1,0 +1,13 @@
+addopts
+argnames
+cmap
+docstrings
+figsize
+jndarray
+ndarray
+pycache
+pytest
+ufunc
+ufuncs
+venv
+zlim

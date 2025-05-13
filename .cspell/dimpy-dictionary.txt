@@ -1,0 +1,9 @@
+codomain
+codomains
+darray
+dimpy
+dvec
+dvecs
+ratioed
+vectype
+vectypes
