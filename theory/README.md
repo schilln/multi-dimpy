@@ -117,6 +117,64 @@ $$
 In the first example, observe that $\mathbf a \sim \text{m s } \cdot \mathbf b^{\sim \top}$ (so $\mathbf a \approx \mathbf b^{\sim \top}$),
 and in the second example $\mathbf a \sim 1 \cdot \mathbf b^{\sim \top}$, but in the third example there is no dimensioned $c$ such that $\mathbf a \sim c \mathbf b^{\sim \top}$.
 
-<!-- TODO: Cite book again. -->
+## Matrices
 
-<!-- TODO: Maybe start from dimensioned vectors, outer products... p. 76 -->
+We're finally ready to discuss dimensioned matrices.
+First recall from [Vectors](#vectors) how we defined two vectors having the ***same dimensional form*** or being ***dimensionally parallel*** in terms of corresponding components.
+Likewise the ***dimensional inverse*** of a matrix is obtained by inverting the dimensions of components and then taking the transpose of the matrix.
+
+When is the product of two matrices defined?
+Again assuming $\mathbf a_{(i)}, \mathbf b_{(j)} \in \mathbb R^n$ for all $i, j$, we'll define two matrices $\mathbf A$ and $\mathbf B$ in terms of the $\{\mathbf a_{(i)}\}$ and $\{\mathbf b_{(j)}\}$:
+$$
+\begin{align*}
+  \mathbf A
+  &= \begin{bmatrix}
+    \mathbf a_{(1)}^\top \\
+    \vdots \\
+    \mathbf a_{(m)}^\top
+  \end{bmatrix} \in M_{m \times n} \\\\
+
+  \mathbf B
+  &= \begin{bmatrix}
+    \mathbf b_{(1)} & \cdots & \mathbf b_{(k)}
+  \end{bmatrix} \in M_{n \times k}.
+\end{align*}
+$$
+Then the $(i, j)$ entry of the product $\mathbf A \mathbf B$ is
+$$
+[\mathbf A \mathbf B]_{i, j} = \mathbf a_{(i)}^\top \mathbf b_{(j)}
+$$
+which we know is defined exactly when $\mathbf a_{(i)} \approx \mathbf b_{(j)}^{\sim \top}$.
+For a fixed $j$, this must be true for all $i$, so $\mathbf b_{(1)}^{\sim \top} \approx \mathbf a_{(1)} \approx \cdots \approx \mathbf a_{(m)}$.
+So all the rows of $A$ are dimensionally parallel, and we can write
+$$
+A
+\sim \begin{bmatrix}
+  1 \\ c_2 \\ \vdots \\ c_m
+\end{bmatrix}
+[\text{the first row of A}]
+= \mathbf c \mathbf a_{(1)}^\top
+$$
+where
+$
+\mathbf c
+= \begin{bmatrix}
+  1 & c_2 & \cdots & c_m
+\end{bmatrix}^\top
+$
+is a dimensioned column vector.
+
+The important point is that for $A$ to be multiplied on the right by a matrix, its dimensional form must be representable as an outer product.
+It is useful to write this as $A \sim \mathbf u \mathbf v^\sim$ for some $\mathbf u, \mathbf v$.
+We may likewise find that for $\mathbf B$ to be multiplied on the left by a matrix, we must have $\mathbf B \sim \mathbf x \mathbf y^\sim$ for some $\mathbf x, \mathbf y$.
+Furthermore, we find
+$$
+\begin{align*}
+  \mathbf A \mathbf B
+  &\sim (\mathbf u \mathbf v^\sim)(\mathbf x \mathbf y^\sim) \\
+  &\sim \mathbf u (\mathbf v^\sim \mathbf x) \mathbf y^\sim
+\end{align*}
+$$
+which is defined exactly when $\mathbf x \approx \mathbf v$ (since $\mathbf (\mathbf v^\sim \mathbf x)^\top = \mathbf x^\top \mathbf v^{\sim \top}$).
+
+<!-- TODO: Cite book again. -->
