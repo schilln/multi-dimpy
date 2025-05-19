@@ -1,4 +1,4 @@
-# Overview
+# Introduction to dimensioned linear algebra
 
 It should be clear that sums of quantities with different dimensions are not always defined.
 Letting $\text m$ denote meters and $\text s$ denote seconds, we see that
@@ -15,7 +15,7 @@ $$
 
 In what follows we'll be concerned with the *physical dimensions* of scalars, vectors, and matrices, not their *numeric* components, so while the definitions are stated when working with real numbers $(\mathbb R)$, we could as easily work with complex numbers $(\mathbb C)$.
 
-# Terminology and notation
+## Terminology and notation
 
 Denote the physical dimension of a scalar with $\sim$;
 for example, if $a$ represents a quantity of meters, write $a \sim \text{meters}$.
@@ -30,7 +30,7 @@ It'll also be useful to define the ***dimensional inverse*** of a scalar, denote
 That is, the product of a scalar and its dimensional inverse is dimensionless.
 For example, if $a \sim \text{ m} \cdot \text{s}^{-1}$, then $a^\sim \sim \text{ m}^{-1} \cdot \text{s}$.
 
-# Vectors
+## Vectors
 
 When is a dot product between vectors defined?
 Assuming $\mathbf a = [\mathbf a_1, \mathbf a_2, \ldots, \mathbf a_n]^\top \in \mathbb R^n$ (and similar for $\mathbf b$),
@@ -52,7 +52,7 @@ It follows that $\mathbf a^\sim \mathbf a \sim 1$.
 Then we can restate the requirement for to vectors to have a dot product:
 $\mathbf a^\top \mathbf b$ is defined exactly when $\mathbf a \approx \mathbf b^{\sim \top}$.
 
-## Examples of vector dot products
+### Examples of vector dot products
 
 $$
 \begin{align}
