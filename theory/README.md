@@ -53,7 +53,7 @@ is defined exactly when $\mathbf a_i \mathbf b_i \sim \mathbf a_j \mathbf b_j$ f
 This is true exactly when $\mathbf a_i \sim c \mathbf b_i^\sim$, (i.e., $\mathbf a_i \approx \mathbf b_i^\sim$) for all $i$.
 (Note it is also true that $\mathbf a_i \approx \mathbf b_i$.)
 
-We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.  
+We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.\
 (Later we will extend this component-wise definition to matrices as well.)
 
 We also extend the definition of ***dimensional inverse***:
