@@ -1,5 +1,8 @@
 # Introduction to dimensioned linear algebra
 
+This document provides a brief introduction to working with dimensioned scalars, vectors, and matrices.
+It is based on and somewhat summarizes sections 2.4–5 of *Multidimensional Analysis*[^1].
+
 It should be clear that sums of dimensioned quantities are not always defined.
 Letting $\text m$ denote meters and $\text s$ denote seconds, we see that
 $$
@@ -11,8 +14,6 @@ $$
 $$
 
 In what follows we'll be concerned with the *physical dimensions* of scalars, vectors, and matrices, not their *numeric* components, so while the definitions are stated while working with real numbers $(\mathbb R)$, we could as easily work with complex numbers $(\mathbb C)$.
-
-This document is based on and somewhat summarizes sections 2.4–5 of *Multidimensional Analysis*[^1].
 
 [^1]: Hart, G. W. (1995). Multidimensional Analysis: Algebras and Systems for Science and Engineering. Springer-Verlag.
 
@@ -177,8 +178,18 @@ It is useful to write this as $\mathbf A \sim \mathbf u \mathbf v^\sim$ for some
 We may similarly find that for $\mathbf B$ to be multiplied on the left by a matrix, we must have $\mathbf B \sim \mathbf x \mathbf y^\sim$ for some $\mathbf x, \mathbf y$.
 
 So the **condition for a matrix to be *multipliable*** is that its dimensions take the form of an outer product, i.e., $\mathbf A \sim \mathbf u \mathbf v^\sim$, and in this case it is multipliable on both the left and the right.
+We refer to these two vectors $\mathbf u, \mathbf v$ as ***dimension vectors*** for $\mathbf A$, but note that they are *not* unique.
+For example, if $c$ is any non-zero dimensioned scalar,
+$$
+\begin{align*}
+  \mathbf A
+  &\sim \mathbf u \mathbf v^\sim \\
+  &\sim (\mathbf u / c) (c \mathbf v^\sim) \\
+  &\sim (\mathbf u / c) (\mathbf v / c)^\sim.
+\end{align*}
+$$
 
-Furthermore, we find
+Finally, for two matrices to be multiplied together, we find
 $$
 \begin{align*}
   \mathbf A \mathbf B
