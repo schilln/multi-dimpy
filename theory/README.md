@@ -6,9 +6,7 @@ Letting $\text m$ denote meters and $\text s$ denote seconds, we see that
 $$
 1 \text{ m} + 2 \text{ m} = 3 \text{ m},
 $$
-
 but
-
 $$
 1 \text{ m} + 2 \text{ s} = \;?
 $$
@@ -32,8 +30,16 @@ For example, if $a \sim \text{ m} \cdot \text{s}^{-1}$, then $a^\sim \sim \text{
 
 ## Vectors
 
-When is a dot product between vectors defined?
-Assuming $\mathbf a = [\mathbf a_1, \mathbf a_2, \ldots, \mathbf a_n]^\top \in \mathbb R^n$ (and similar for $\mathbf b$),
+When is a dot product between column vectors defined?
+Assuming
+$
+\mathbf a
+= \begin{bmatrix}
+  \mathbf a_1 & \mathbf a_2 & \ldots & \mathbf a_n
+\end{bmatrix}^\top
+\in \mathbb R^n
+$
+(and similar for $\mathbf b$),
 $$
 \mathbf a \cdot \mathbf b
 = \mathbf a^\top \mathbf b
@@ -45,7 +51,12 @@ This is true exactly when $\mathbf a_i \sim c \mathbf b_i^\sim$, (i.e., $\mathbf
 
 We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors (and later to matrices) by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.
 We also extend the definition of ***dimensional inverse***:
-$\mathbf a^\sim \coloneqq [\mathbf a_1^\sim, \cdots, \mathbf a_n^\sim]$.
+$
+\mathbf a^\sim
+\coloneqq \begin{bmatrix}
+  \mathbf a_1^\sim & \cdots & \mathbf a_n^\sim
+\end{bmatrix}
+$.
 (Note that the shape is *transposed*, so the dimensional inverse of a column vector is a row vector).
 It follows that $\mathbf a^\sim \mathbf a \sim 1$.
 
@@ -55,52 +66,52 @@ $\mathbf a^\top \mathbf b$ is defined exactly when $\mathbf a \approx \mathbf b^
 ### Examples of vector dot products
 
 $$
-\begin{align}
-\mathbf a
-&= \begin{bmatrix}
-1 \text{ m} \\ 2 \text{ m} \\ 3 \text{ m}
-\end{bmatrix} \\
-\mathbf b
-&= \begin{bmatrix}
-1 \text{ s} \\ 2 \text{ s} \\ 3 \text{ s}
-\end{bmatrix} \\
-\mathbf a^\top \mathbf b
-&= 1 \text{ m} \cdot \text{s}
-+ 4 \text{ m} \cdot \text{s}
-+ 9 \text{ m} \cdot \text{s} \\
-&= 14 \text{ m} \cdot \text{s} \\\\
+\begin{align*}
+  \mathbf a
+  &= \begin{bmatrix}
+    1 \text{ m} \\ 2 \text{ m} \\ 3 \text{ m}
+  \end{bmatrix} \\
+  \mathbf b
+  &= \begin{bmatrix}
+    1 \text{ s} \\ 2 \text{ s} \\ 3 \text{ s}
+  \end{bmatrix} \\
+  \mathbf a^\top \mathbf b
+  &= 1 \text{ m} \cdot \text{s}
+  + 4 \text{ m} \cdot \text{s}
+  + 9 \text{ m} \cdot \text{s} \\
+  &= 14 \text{ m} \cdot \text{s} \\\\
 
-\mathbf a
-&= \begin{bmatrix}
-1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
-\end{bmatrix} \\
-\mathbf b
-&= \begin{bmatrix}
-1 \text{ m}^{-1} \\ 2 \text{ m}^{-2} \\ 3 \text{ m}^{-3}
-\end{bmatrix} \\
-\mathbf a^\top \mathbf b
-&= 1 \text{ m}^1 \cdot \text{m}^{-1}
-+ 4 \text{ m}^2 \cdot \text{m}^{-2}
-+ 9 \text{ m}^3 \cdot \text{m}^{-3} \\
-&= 14 \\\\
+  \mathbf a
+  &= \begin{bmatrix}
+    1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
+  \end{bmatrix} \\
+  \mathbf b
+  &= \begin{bmatrix}
+    1 \text{ m}^{-1} \\ 2 \text{ m}^{-2} \\ 3 \text{ m}^{-3}
+  \end{bmatrix} \\
+  \mathbf a^\top \mathbf b
+  &= 1 \text{ m}^1 \cdot \text{m}^{-1}
+  + 4 \text{ m}^2 \cdot \text{m}^{-2}
+  + 9 \text{ m}^3 \cdot \text{m}^{-3} \\
+  &= 14 \\\\
 
-\mathbf a
-&= \begin{bmatrix}
-1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
-\end{bmatrix} \\
-\mathbf b
-&= \begin{bmatrix}
-1 \text{ m}^{-1} \\ 2 \text{ m}^{-1} \\ 3 \text{ m}^{-1}
-\end{bmatrix} \\
-\mathbf a^\top \mathbf b
-&= 1 \text{ m}^1 \cdot \text{m}^{-1}
-+ 4 \text{ m}^2 \cdot \text{m}^{-1}
-+ 9 \text{ m}^3 \cdot \text{m}^{-1} \\
-&= 1
-+ 4 \text{ m}^1
-+ 9 \text{ m}^2 \\
-&= \; ?
-\end{align}
+  \mathbf a
+  &= \begin{bmatrix}
+    1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
+  \end{bmatrix} \\
+  \mathbf b
+  &= \begin{bmatrix}
+    1 \text{ m}^{-1} \\ 2 \text{ m}^{-1} \\ 3 \text{ m}^{-1}
+  \end{bmatrix} \\
+  \mathbf a^\top \mathbf b
+  &= 1 \text{ m}^1 \cdot \text{m}^{-1}
+  + 4 \text{ m}^2 \cdot \text{m}^{-1}
+  + 9 \text{ m}^3 \cdot \text{m}^{-1} \\
+  &= 1
+  + 4 \text{ m}^1
+  + 9 \text{ m}^2 \\
+  &= \; ?
+\end{align*}
 $$
 
 In the first example, observe that $\mathbf a \sim \text{m s } \cdot \mathbf b^{\sim \top}$ (so $\mathbf a \approx \mathbf b^{\sim \top}$),
