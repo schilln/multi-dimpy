@@ -12,7 +12,7 @@ $$
 
 In what follows we'll be concerned with the *physical dimensions* of scalars, vectors, and matrices, not their *numeric* components, so while the definitions are stated while working with real numbers $(\mathbb R)$, we could as easily work with complex numbers $(\mathbb C)$.
 
-This document is based on and somewhat summarizes sections 2.4–5 of *Multimensional Analysis*[^1].
+This document is based on and somewhat summarizes sections 2.4–5 of *Multidimensional Analysis*[^1].
 
 [^1]: Hart, G. W. (1995). Multidimensional Analysis: Algebras and Systems for Science and Engineering. Springer-Verlag.
 
@@ -70,6 +70,9 @@ $\mathbf a^\top \mathbf b$ is defined exactly when $\mathbf a \approx \mathbf b^
 
 ### Examples of vector dot products
 
+In the first example, observe that $\mathbf a \sim \text{m s } \cdot \mathbf b^{\sim \top}$ (so $\mathbf a \approx \mathbf b^{\sim \top}$),
+and in the second example $\mathbf a \sim 1 \cdot \mathbf b^{\sim \top}$, but in the third example there is no dimensioned scalar $c$ such that $\mathbf a \sim c \mathbf b^{\sim \top}$.
+
 $$
 \begin{align*}
   \mathbf a
@@ -118,9 +121,6 @@ $$
   &= \; ?
 \end{align*}
 $$
-
-In the first example, observe that $\mathbf a \sim \text{m s } \cdot \mathbf b^{\sim \top}$ (so $\mathbf a \approx \mathbf b^{\sim \top}$),
-and in the second example $\mathbf a \sim 1 \cdot \mathbf b^{\sim \top}$, but in the third example there is no dimensioned $c$ such that $\mathbf a \sim c \mathbf b^{\sim \top}$.
 
 ## Matrices
 
