@@ -1,8 +1,7 @@
 # Introduction to dimensioned linear algebra
 
-It should be clear that sums of quantities with different dimensions are not always defined.
+It should be clear that sums of dimensioned quantities are not always defined.
 Letting $\text m$ denote meters and $\text s$ denote seconds, we see that
-
 $$
 1 \text{ m} + 2 \text{ m} = 3 \text{ m},
 $$
@@ -11,13 +10,17 @@ $$
 1 \text{ m} + 2 \text{ s} = \;?
 $$
 
-In what follows we'll be concerned with the *physical dimensions* of scalars, vectors, and matrices, not their *numeric* components, so while the definitions are stated when working with real numbers $(\mathbb R)$, we could as easily work with complex numbers $(\mathbb C)$.
+In what follows we'll be concerned with the *physical dimensions* of scalars, vectors, and matrices, not their *numeric* components, so while the definitions are stated while working with real numbers $(\mathbb R)$, we could as easily work with complex numbers $(\mathbb C)$.
+
+This document is based on and somewhat summarizes sections 2.4–5 of *Multimensional Analysis*[^1].
+
+[^1]: Hart, G. W. (1995). Multidimensional Analysis: Algebras and Systems for Science and Engineering. Springer-Verlag.
 
 ## Terminology and notation
 
 Denote the physical dimension of a scalar with $\sim$;
 for example, if $a$ represents a quantity of meters, write $a \sim \text{meters}$.
-Thus, $a + b$ is defined exactly when $a \sim b$.
+Thus, if $b$ is some other quantity, $a + b$ is defined exactly when $a \sim b$.
 In this case we say $a$ and $b$ have the ***same dimensional form***.
 We write the ***dimensionless*** quantity as simply $1$.
 
@@ -25,12 +28,12 @@ Additionally, we say $a$ and $b$ are ***dimensionally parallel*** if there is so
 We write this as $a \approx b$.
 
 It'll also be useful to define the ***dimensional inverse*** of a scalar, denoted $a^\sim$ and defined by $a^\sim a \sim a a^\sim \sim 1$.
-That is, the product of a scalar and its dimensional inverse is dimensionless.
+In words, the product of a scalar and its dimensional inverse is dimensionless.
 For example, if $a \sim \text{ m} \cdot \text{s}^{-1}$, then $a^\sim \sim \text{ m}^{-1} \cdot \text{s}$.
 
 ## Vectors
 
-When is a dot product between column vectors defined?
+When is a dot product between (column) vectors defined?
 Assuming
 $
 \mathbf a
@@ -39,17 +42,19 @@ $
 \end{bmatrix}^\top
 \in \mathbb R^n
 $
-(and similar for $\mathbf b$),
+(and similar for $\mathbf b$), the dot product
 $$
 \mathbf a \cdot \mathbf b
 = \mathbf a^\top \mathbf b
-= \sum_{i=1}^n \mathbf a_i \mathbf b_i,
+= \sum_{i=1}^n \mathbf a_i \mathbf b_i
 $$
-which is defined exactly when $\mathbf a_i \mathbf b_i \sim \mathbf a_j \mathbf b_j$ for all $i, j$, or equivalently, there is some dimensioned scalar $c$ such that $\mathbf a_i \mathbf b_i \sim c$ for all $i$ (in which case $\mathbf a^\top \mathbf b \sim c$).
+is defined exactly when $\mathbf a_i \mathbf b_i \sim \mathbf a_j \mathbf b_j$ for all $i, j$, or equivalently, there is some dimensioned scalar $c$ such that $\mathbf a_i \mathbf b_i \sim c$ for all $i$ (and in which case $\mathbf a^\top \mathbf b \sim c$).
 This is true exactly when $\mathbf a_i \sim c \mathbf b_i^\sim$, (i.e., $\mathbf a_i \approx \mathbf b_i^\sim$) for all $i$.
-(Note it is true that $\mathbf a_i \approx \mathbf b_i$ for all $i$, but it'll be more useful to write it the former way.)
+(Note it is also true that $\mathbf a_i \approx \mathbf b_i$.)
 
-We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors (and later to matrices) by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.
+We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.  
+(Later we will extend this component-wise definition to matrices as well.)
+
 We also extend the definition of ***dimensional inverse***:
 $
 \mathbf a^\sim
@@ -57,10 +62,10 @@ $
   \mathbf a_1^\sim & \cdots & \mathbf a_n^\sim
 \end{bmatrix}
 $.
-(Note that the shape is *transposed*, so the dimensional inverse of a column vector is a row vector).
+Note that the shape is *transposed*, so the dimensional inverse of a column vector is a row vector.
 It follows that $\mathbf a^\sim \mathbf a \sim 1$.
 
-Then we can restate the requirement for to vectors to have a dot product:
+Then we can restate the **condition for two vectors to have a dot product**:
 $\mathbf a^\top \mathbf b$ is defined exactly when $\mathbf a \approx \mathbf b^{\sim \top}$.
 
 ### Examples of vector dot products
@@ -121,6 +126,7 @@ and in the second example $\mathbf a \sim 1 \cdot \mathbf b^{\sim \top}$, but in
 
 We're finally ready to discuss dimensioned matrices.
 First recall from [Vectors](#vectors) how we defined two vectors having the ***same dimensional form*** or being ***dimensionally parallel*** in terms of corresponding components.
+We use these same component-wise definitions for matrices, and note now that vectors are a special case of matrices.
 Likewise the ***dimensional inverse*** of a matrix is obtained by inverting the dimensions of components and then taking the transpose of the matrix.
 
 When is the product of two matrices defined?
@@ -146,13 +152,15 @@ $$
 $$
 which we know is defined exactly when $\mathbf a_{(i)} \approx \mathbf b_{(j)}^{\sim \top}$.
 For a fixed $j$, this must be true for all $i$, so $\mathbf b_{(1)}^{\sim \top} \approx \mathbf a_{(1)} \approx \cdots \approx \mathbf a_{(m)}$.
-So all the rows of $A$ are dimensionally parallel, and we can write
+So all the rows of $A$ are dimensionally parallel, and we can write $\mathbf A$ as an outer product
 $$
-A
+\mathbf A
 \sim \begin{bmatrix}
   1 \\ c_2 \\ \vdots \\ c_m
 \end{bmatrix}
-[\text{the first row of A}]
+\begin{bmatrix}
+  \text{the first row of } \mathbf A
+\end{bmatrix}
 = \mathbf c \mathbf a_{(1)}^\top
 $$
 where
@@ -162,11 +170,14 @@ $
   1 & c_2 & \cdots & c_m
 \end{bmatrix}^\top
 $
-is a dimensioned column vector.
+is some dimensioned column vector.
 
-The important point is that for $A$ to be multiplied on the right by a matrix, its dimensional form must be representable as an outer product.
-It is useful to write this as $A \sim \mathbf u \mathbf v^\sim$ for some $\mathbf u, \mathbf v$.
-We may likewise find that for $\mathbf B$ to be multiplied on the left by a matrix, we must have $\mathbf B \sim \mathbf x \mathbf y^\sim$ for some $\mathbf x, \mathbf y$.
+The important point is that for $\mathbf A$ to be multiplied on the right by a matrix, its dimensions must take the form of an outer product.
+It is useful to write this as $\mathbf A \sim \mathbf u \mathbf v^\sim$ for some $\mathbf u, \mathbf v$.
+We may similarly find that for $\mathbf B$ to be multiplied on the left by a matrix, we must have $\mathbf B \sim \mathbf x \mathbf y^\sim$ for some $\mathbf x, \mathbf y$.
+
+So the **condition for a matrix to be *multipliable*** is that its dimensions take the form of an outer product, i.e., $\mathbf A \sim \mathbf u \mathbf v^\sim$, and in this case it is multipliable on both the left and the right.
+
 Furthermore, we find
 $$
 \begin{align*}
@@ -177,4 +188,4 @@ $$
 $$
 which is defined exactly when $\mathbf x \approx \mathbf v$ (since $\mathbf (\mathbf v^\sim \mathbf x)^\top = \mathbf x^\top \mathbf v^{\sim \top}$).
 
-<!-- TODO: Cite book again. -->
+Now we have **condition for two matrices to be multiplied**: to compute $\mathbf A \mathbf B$ with $\mathbf A \sim \mathbf u \mathbf v^\sim$ and $\mathbf B \sim \mathbf x \mathbf y^\sim$, we must have $\mathbf x \approx \mathbf v$.
