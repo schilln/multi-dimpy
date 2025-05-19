@@ -42,13 +42,18 @@ To use the extension with these dictionaries, assuming you've opened the root di
 {
     ...
     "cSpell.customDictionaries": {
-        "Python": {
-            "path": "${workspaceFolder}/.cspell/python-dictionary.txt",
+        "DimPy": {
+            "path": "${workspaceFolder}/.cspell/dimpy-dictionary.txt",
             "addWords": true,
             "scope": "workspace"
         },
-        "DimPy": {
-            "path": "${workspaceFolder}/.cspell/dimpy-dictionary.txt",
+        "LaTeX": {
+            "path": "${workspaceFolder}/.cspell/latex-dictionary.txt",
+            "addWords": true,
+            "scope": "workspace"
+        },
+        "Python": {
+            "path": "${workspaceFolder}/.cspell/python-dictionary.txt",
             "addWords": true,
             "scope": "workspace"
         },
