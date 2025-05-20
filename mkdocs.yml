@@ -2,3 +2,6 @@ site_name: multi-DimPy
 site_url: !ENV READTHEDOCS_CANONICAL_URL
 theme:
   name: material
+markdown_extensions:
+  - markdown_include.include:
+      base_path: docs
