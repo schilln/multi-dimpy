@@ -4,6 +4,7 @@ cmap
 docstrings
 figsize
 jndarray
+mkdocs
 ndarray
 pycache
 pytest
