@@ -40,7 +40,7 @@ To use the extension with these dictionaries, assuming you've opened the root di
 
 ```json
 {
-    ...
+    // ...
     "cSpell.customDictionaries": {
         "DimPy": {
             "path": "${workspaceFolder}/.cspell/dimpy-dictionary.txt",
@@ -58,6 +58,6 @@ To use the extension with these dictionaries, assuming you've opened the root di
             "scope": "workspace"
         },
     },
-    ...
+    // ...
 }
 ```
