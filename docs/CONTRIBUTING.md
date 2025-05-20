@@ -1,13 +1,13 @@
 # Contributing
 
 This document provides instructions for contributing actual code to this project.\
-For a crash course in dimensioned linear algebra, see the [`theory`](theory/) directory.
+For a crash course in dimensioned linear algebra, see [`Theory`](theory/README.md).
 
 ## Development environment setup
 
 1. Create a fork of the repository.
 1. Set up dependencies using Poetry.
-    1. Follow the Poetry's installation instructions [here](https://python-poetry.org/docs/).
+    1. Follow Poetry's [installation instructions](https://python-poetry.org/docs/).
     1. Make sure Poetry's executable is added to your `$PATH`.\
         (Poetry should describe how to do this in the terminal output following successful installation.
         Running `poetry --version` should verify it's been installed and added to your `$PATH` correctly.)
