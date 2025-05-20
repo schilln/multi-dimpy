@@ -47,16 +47,8 @@ To use the extension with these dictionaries, assuming you've opened the root di
             "addWords": true,
             "scope": "workspace"
         },
-        "LaTeX": {
-            "path": "${workspaceFolder}/.cspell/latex-dictionary.txt",
-            "addWords": true,
-            "scope": "workspace"
-        },
-        "Python": {
-            "path": "${workspaceFolder}/.cspell/python-dictionary.txt",
-            "addWords": true,
-            "scope": "workspace"
-        },
+        // Repeat for other dictionaries.
+        // The top-level key (e.g., "DimPy") doesn't matter, just the file path.
     },
     // ...
 }
