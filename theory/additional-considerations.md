@@ -34,4 +34,4 @@ $$
 = \sqrt{1 \text{ volts}^2 + 4 \text{ amperes}^2}
 = \; ?
 $$
-pp. 7–9
+<!-- pp. 7–9 -->
