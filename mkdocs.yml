@@ -1,7 +1,16 @@
 site_name: multi-DimPy
 site_url: !ENV READTHEDOCS_CANONICAL_URL
+repo_url: https://github.com/schilln/multi-dimpy
+repo_name: schilln/multi-dimpy
+edit_uri: blob/main/docs/
 theme:
   name: material
+  features:
+    - content.action.edit
+    - content.action.view
+  icon:
+    edit: material/pencil
+    view: material/eye
 markdown_extensions:
   - footnotes
   - markdown_include.include:
