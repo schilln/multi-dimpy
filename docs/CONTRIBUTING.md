@@ -1,6 +1,6 @@
 # Contributing
 
-This document provides instructions for contributing actual code to this project.\
+This document provides instructions for contributing actual code to this project.<br>
 For a crash course in dimensioned linear algebra, see [`Theory`](theory/README.md).
 
 ## Development environment setup
@@ -8,11 +8,11 @@ For a crash course in dimensioned linear algebra, see [`Theory`](theory/README.m
 1. Create a fork of the repository.
 1. Set up dependencies using Poetry.
     1. Follow Poetry's [installation instructions](https://python-poetry.org/docs/).
-    1. Make sure Poetry's executable is added to your `$PATH`.\
+    1. Make sure Poetry's executable is added to your `$PATH`.<br>
         (Poetry should describe how to do this in the terminal output following successful installation.
         Running `poetry --version` should verify it's been installed and added to your `$PATH` correctly.)
     1. Install multi-DimPy's dependencies and development dependencies using `poetry install`.
-1. Install pre-commit hooks using `poetry run pre-commit install`.\
+1. Install pre-commit hooks using `poetry run pre-commit install`.<br>
     (You may need to restart your editor for pre-commit hooks to get the correct `$PATH` with Poetry's executable.)
 
 Now your environment should be ready to go!
@@ -21,7 +21,7 @@ To run tools like `ruff ...` or `pytest ...`, you'll instead use `poetry run ruf
 
 ## Making contributions
 
-To start making commits, create a branch from your fork's `main` branch.\
+To start making commits, create a branch from your fork's `main` branch.<br>
 To get your changes onto the `main` branch of multi-DimPy:
 
 1. Pull the latest development on `multi-dimpy/main` to your `main` branch.
