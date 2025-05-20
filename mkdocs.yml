@@ -3,5 +3,6 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 theme:
   name: material
 markdown_extensions:
+  - footnotes
   - markdown_include.include:
       base_path: docs
