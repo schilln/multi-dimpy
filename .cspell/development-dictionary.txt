@@ -1,0 +1,6 @@
+javascript
+javascripts
+katex
+mkdocs
+pymdownx
+pytest

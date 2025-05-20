@@ -4,6 +4,8 @@ darray
 dimpy
 dvec
 dvecs
+multipliable
 ratioed
 vectype
 vectypes
+Verlag

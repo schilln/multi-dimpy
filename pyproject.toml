@@ -51,6 +51,8 @@ ruff = "^0.11.8"
 pytest = "^8.3.5"
 pytest-cov = "^6.1.1"
 pre-commit = "^4.2.0"
+mkdocs-material = "^9.6.14"
+markdown-include = "^0.8.1"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
