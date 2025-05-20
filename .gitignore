@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cd]
 
+# Build files
+site
+
 # Distribution / packaging
 dist/
 

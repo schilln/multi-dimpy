@@ -36,13 +36,13 @@ For example, if $a \sim \text{ m} \cdot \text{s}^{-1}$, then $a^\sim \sim \text{
 
 When is a dot product between (column) vectors defined?
 Assuming
-$
+$$
 \mathbf a
 = \begin{bmatrix}
-  \mathbf a_1 & \mathbf a_2 & \ldots & \mathbf a_n
-\end{bmatrix}^\top
+  \mathbf a_1 \\\ \mathbf a_2 \\\ \vdots \\\ \mathbf a_n
+\end{bmatrix}
 \in \mathbb R^n
-$
+$$
 (and similar for $\mathbf b$), the dot product
 $$
 \mathbf a \cdot \mathbf b
@@ -53,13 +53,13 @@ is defined exactly when $\mathbf a_i \mathbf b_i \sim \mathbf a_j \mathbf b_j$ f
 This is true exactly when $\mathbf a_i \sim c \mathbf b_i^\sim$, (i.e., $\mathbf a_i \approx \mathbf b_i^\sim$) for all $i$.
 (Note it is also true that $\mathbf a_i \approx \mathbf b_i$.)
 
-We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.\
+We may extend the definitions of having the ***same dimensional form*** and being ***dimensionally parallel*** to vectors by requiring that, for two vectors (of the same shape), their corresponding components have the same dimensional form or are dimensionally parallel, respectively.<br>
 (Later we will extend this component-wise definition to matrices as well.)
 
 We also extend the definition of ***dimensional inverse***:
 $
 \mathbf a^\sim
-\coloneqq \begin{bmatrix}
+  \coloneqq \begin{bmatrix}
   \mathbf a_1^\sim & \cdots & \mathbf a_n^\sim
 \end{bmatrix}
 $.
@@ -88,8 +88,8 @@ $$
   &= 1 \text{ m} \cdot \text{s}
   + 4 \text{ m} \cdot \text{s}
   + 9 \text{ m} \cdot \text{s} \\
-  &= 14 \text{ m} \cdot \text{s} \\\\
-
+  &= 14 \text{ m} \cdot \text{s} \\
+  \\
   \mathbf a
   &= \begin{bmatrix}
     1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
@@ -102,8 +102,8 @@ $$
   &= 1 \text{ m}^1 \cdot \text{m}^{-1}
   + 4 \text{ m}^2 \cdot \text{m}^{-2}
   + 9 \text{ m}^3 \cdot \text{m}^{-3} \\
-  &= 14 \\\\
-
+  &= 14 \\
+  \\
   \mathbf a
   &= \begin{bmatrix}
     1 \text{ m}^1 \\ 2 \text{ m}^2 \\ 3 \text{ m}^3
@@ -132,6 +132,7 @@ Likewise the ***dimensional inverse*** of a matrix is obtained by inverting the 
 
 When is the product of two matrices defined?
 Again assuming $\mathbf a_{(i)}, \mathbf b_{(j)} \in \mathbb R^n$ for all $i, j$, we'll define two matrices $\mathbf A$ and $\mathbf B$ in terms of the $\{\mathbf a_{(i)}\}$ and $\{\mathbf b_{(j)}\}$:
+
 $$
 \begin{align*}
   \mathbf A
@@ -139,21 +140,25 @@ $$
     \mathbf a_{(1)}^\top \\
     \vdots \\
     \mathbf a_{(m)}^\top
-  \end{bmatrix} \in M_{m \times n} \\\\
-
+  \end{bmatrix} \in M_{m \times n} \\
+  \\
   \mathbf B
   &= \begin{bmatrix}
     \mathbf b_{(1)} & \cdots & \mathbf b_{(k)}
   \end{bmatrix} \in M_{n \times k}.
 \end{align*}
 $$
+
 Then the $(i, j)$ entry of the product $\mathbf A \mathbf B$ is
+
 $$
 [\mathbf A \mathbf B]_{i, j} = \mathbf a_{(i)}^\top \mathbf b_{(j)}
 $$
+
 which we know is defined exactly when $\mathbf a_{(i)} \approx \mathbf b_{(j)}^{\sim \top}$.
 For a fixed $j$, this must be true for all $i$, so $\mathbf b_{(1)}^{\sim \top} \approx \mathbf a_{(1)} \approx \cdots \approx \mathbf a_{(m)}$.
 So all the rows of $A$ are dimensionally parallel, and we can write $\mathbf A$ as an outer product
+
 $$
 \mathbf A
 \sim \begin{bmatrix}
@@ -164,6 +169,7 @@ $$
 \end{bmatrix}
 = \mathbf c \mathbf a_{(1)}^\top
 $$
+
 where
 $
 \mathbf c
@@ -180,6 +186,7 @@ We may similarly find that for $\mathbf B$ to be multiplied on the left by a mat
 So the **condition for a matrix to be *multipliable*** is that its dimensions take the form of an outer product, i.e., $\mathbf A \sim \mathbf u \mathbf v^\sim$, and in this case it is multipliable on both the left and the right.
 We refer to these two vectors $\mathbf u, \mathbf v$ as ***dimension vectors*** for $\mathbf A$, but note that they are *not* unique.
 For example, if $c$ is any non-zero dimensioned scalar,
+
 $$
 \begin{align*}
   \mathbf A
@@ -190,6 +197,7 @@ $$
 $$
 
 Finally, for two matrices to be multiplied together, we find
+
 $$
 \begin{align*}
   \mathbf A \mathbf B
@@ -197,6 +205,7 @@ $$
   &\sim \mathbf u (\mathbf v^\sim \mathbf x) \mathbf y^\sim
 \end{align*}
 $$
+
 which is defined exactly when $\mathbf x \approx \mathbf v$ (since $\mathbf (\mathbf v^\sim \mathbf x)^\top = \mathbf x^\top \mathbf v^{\sim \top}$).
 
 Now we have **condition for two matrices to be multiplied**: to compute $\mathbf A \mathbf B$ with $\mathbf A \sim \mathbf u \mathbf v^\sim$ and $\mathbf B \sim \mathbf x \mathbf y^\sim$, we must have $\mathbf x \approx \mathbf v$.

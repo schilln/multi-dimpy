@@ -1,0 +1,5 @@
+/* Reduce top/bottom space around display environments containing align */
+div.arithmatex {
+    margin-top: -2em;
+    margin-bottom: -2em;
+}

@@ -6,7 +6,6 @@ figsize
 jndarray
 ndarray
 pycache
-pytest
 ufunc
 ufuncs
 venv
